@@ -10,10 +10,12 @@ package com.mycompany.casounoservidor;
  */
 public class Electronico extends Producto{
 
-    public Electronico(int codigo, String nombre, String desccripcion, double precioCosto, double precioVenta, boolean altaPrioridad) {
-        super(codigo, nombre, desccripcion, precioCosto, precioVenta, altaPrioridad);
+    public Electronico(int codigo, String nombre, String descripcion, double precioCosto, boolean altaPrioridad, Prioridad condicion) {
+        super(codigo, nombre, descripcion, precioCosto, 0, altaPrioridad, condicion);
+        calcularPrecioVenta();
     }
     
+    @Override
     public void calcularPrecioVenta(){
          precioVenta = precioCosto * 1.15;
         if (altaPrioridad) precioVenta *= 1.10;

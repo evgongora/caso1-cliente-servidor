@@ -4,6 +4,8 @@
 
 package com.mycompany.casounoservidor;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author ✩°｡⋆⸜ 🎧✮‎‧₊˚✧
@@ -11,6 +13,8 @@ package com.mycompany.casounoservidor;
 public class CasoUnoServidor {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        SwingUtilities.invokeLater(() -> {
+            new ProductoGUI().setVisible(true);
+        });
     }
 }
