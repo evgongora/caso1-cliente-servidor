@@ -20,6 +20,15 @@ public enum Prioridad {
     public double getComision() {
         return comision;
     }
+    
+    // Método estático para obtener la comisión basada en el valor del enum
+    public static double getComisionByName(String name) {
+        try {
+            return valueOf(name).getComision();
+        } catch (IllegalArgumentException e) {
+            return NUEVO.getComision(); // Valor por defecto
+        }
+    }
 }
 
     

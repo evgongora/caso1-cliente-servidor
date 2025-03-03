@@ -10,12 +10,15 @@ package com.mycompany.casounoservidor;
  */
 public class Ropa extends Producto {
 
-    public Ropa(int codigo, String nombre, String desccripcion, double precioCosto, double precioVenta, boolean altaPrioridad) {
-        super(codigo, nombre, desccripcion, precioCosto, precioVenta, altaPrioridad);
+    public Ropa(int codigo, String nombre, String descripcion, double precioCosto, boolean altaPrioridad, Prioridad condicion) {
+        super(codigo, nombre, descripcion, precioCosto, 0, altaPrioridad, condicion);
+        calcularPrecioVenta();
     }
     
+    @Override
     public void calcularPrecioVenta() {
-        precioVenta = precioCosto * Prioridad.getComision();
+        precioVenta = precioCosto * condicion.getComision();
+        if (altaPrioridad) precioVenta *= 1.05;
     }
 }
     
